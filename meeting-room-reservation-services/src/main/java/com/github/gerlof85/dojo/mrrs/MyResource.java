@@ -1,4 +1,4 @@
-package com.github.gerlof85.mrrs;
+package com.github.gerlof85.dojo.mrrs;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

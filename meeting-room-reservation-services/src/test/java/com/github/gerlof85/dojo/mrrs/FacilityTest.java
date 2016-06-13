@@ -11,4 +11,11 @@ public class FacilityTest {
 		
 		assertEquals("Beamer", facility.getName());
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void emptyFacility() throws Exception {
+		Facility facility = new Facility("");
+		
+		assertEquals("", facility.getName());
+	}
 }
