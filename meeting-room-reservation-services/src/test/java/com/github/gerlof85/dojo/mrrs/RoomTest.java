@@ -16,5 +16,23 @@ public class RoomTest {
 		assertEquals("Sieben", room.getName());
 		assertEquals("01.12", room.getLocation());
 		assertEquals(10, room.getCapacity());
+		
+	}
+	
+	// voegt een facility(beamer) toe aan een room
+	@Test
+	public void addFacility() throws Exception {
+		String name = "";
+		String location = "01.13";
+		int capacity = 8;
+		
+		//nieuwe kamer aanmaker
+		Room room = new Room(name, location, capacity);
+		
+		Facility facility = new Facility("Beamer");
+		
+		room.add(facility);
+		
+		assertEquals("Beamer", room.getFacility());
 	}
 }
