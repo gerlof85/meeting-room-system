@@ -1,4 +1,4 @@
-package com.github.gerlof85.dojo.mrrs;
+package com.github.gerlof85.dojo.mrrs.domain;
 
 import org.apache.commons.lang3.StringUtils;
 
