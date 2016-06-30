@@ -52,6 +52,7 @@ public class RoomTest {
 	
 	@Test
 	public void createRoomLocationNull() throws Exception {
+		exception.expect(IllegalArgumentException.class);
 		exception.expectMessage("Argument 'location' should not be null.");
 
 		String name = "Sechs";
@@ -63,6 +64,7 @@ public class RoomTest {
 	
 	@Test
 	public void createRoomLocationEmpty() throws Exception {
+		exception.expect(IllegalArgumentException.class);
 		exception.expectMessage("Argument 'location' should not be null.");
 
 		String name = "Sieben";
@@ -74,6 +76,7 @@ public class RoomTest {
 	
 	@Test
 	public void createRoomCapacityIncorrect() throws Exception {
+		exception.expect(IllegalArgumentException.class);
 		exception.expectMessage("Argument 'capacity' with value '-10' should be larger then 0.");
 		String name = "Sieben";
 		String location = " 08.01 ";
