@@ -13,7 +13,7 @@ public class Room {
 		String nameCln = StringUtils.trimToNull(name);
 		String locationCln = StringUtils.trimToNull(location);
 		if (locationCln == null) {
-			throw new IllegalArgumentException("Argument 'location' should not be null");
+			throw new IllegalArgumentException("Argument 'location' should not be null.");
 		}
 		if (capacity <= 0) {
 			throw new IllegalArgumentException("Argument 'capacity' with value '" + capacity + "' should be larger then 0.");

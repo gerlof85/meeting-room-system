@@ -2,9 +2,15 @@ package com.github.gerlof85.dojo.mrrs;
 
 import static org.junit.Assert.*;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class RoomTest {
+	@Rule
+	public ExpectedException exception = ExpectedException.none();
+
+
 	@Test
 	public void createBasicRoom() throws Exception {
 		String name = "Sieben";
@@ -30,6 +36,7 @@ public class RoomTest {
 		assertEquals("01.10", room.getLocation());
 		assertEquals(2, room.getCapacity());
 	}
+
 	@Test
 	public void createBasicRoom3() throws Exception {
 		String name = null;
@@ -43,8 +50,10 @@ public class RoomTest {
 		assertEquals(2, room.getCapacity());
 	}
 	
-	@Test (expected = IllegalArgumentException.class)
+	@Test
 	public void createRoomLocationNull() throws Exception {
+		exception.expectMessage("Argument 'location' should not be null.");
+
 		String name = "Sechs";
 		String location = null;
 		int capacity = 10;
@@ -52,8 +61,10 @@ public class RoomTest {
 		new Room(name, location, capacity);
 	}
 	
-	@Test (expected = IllegalArgumentException.class)
+	@Test
 	public void createRoomLocationEmpty() throws Exception {
+		exception.expectMessage("Argument 'location' should not be null.");
+
 		String name = "Sieben";
 		String location = "  \t";
 		int capacity = 10;
@@ -61,10 +72,11 @@ public class RoomTest {
 		new Room(name, location, capacity);
 	}
 	
-	@Test (expected = IllegalArgumentException.class)
+	@Test
 	public void createRoomCapacityIncorrect() throws Exception {
+		exception.expectMessage("Argument 'capacity' with value '-10' should be larger then 0.");
 		String name = "Sieben";
-		String location = "  \t";
+		String location = " 08.01 ";
 		int capacity = -10;
 		
 		new Room(name, location, capacity);
