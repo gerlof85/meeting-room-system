@@ -9,7 +9,7 @@ public class Room {
 	private final int capacity;
 	private Facility facility;
 
-	public Room(String name, String location, int capacity) {
+	public Room(String location, int capacity, String name) {
 		String nameCln = StringUtils.trimToNull(name);
 		String locationCln = StringUtils.trimToNull(location);
 		if (locationCln == null) {

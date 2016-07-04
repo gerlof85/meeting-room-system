@@ -17,7 +17,7 @@ public class RoomTest {
 		String location = "01.12";
 		int capacity = 10;
 		
-		Room room = new Room(name, location, capacity);
+		Room room = new Room(location, capacity, name);
 		
 		assertEquals("Sieben", room.getName());
 		assertEquals("01.12", room.getLocation());
@@ -30,7 +30,7 @@ public class RoomTest {
 		String location = "  01.10  ";
 		int capacity = 2;
 		
-		Room room = new Room(name, location, capacity);
+		Room room = new Room(location, capacity, name);
 		
 		assertEquals("Funf", room.getName());
 		assertEquals("01.10", room.getLocation());
@@ -43,7 +43,7 @@ public class RoomTest {
 		String location = " 01.14\t ";
 		int capacity = 2;
 		
-		Room room = new Room(name, location, capacity);
+		Room room = new Room(location, capacity, name);
 		
 		assertNull(room.getName());
 		assertEquals("01.14", room.getLocation());
@@ -59,7 +59,7 @@ public class RoomTest {
 		String location = null;
 		int capacity = 10;
 		
-		new Room(name, location, capacity);
+		new Room(location, capacity, name);
 	}
 	
 	@Test
@@ -71,7 +71,7 @@ public class RoomTest {
 		String location = "  \t";
 		int capacity = 10;
 		
-		new Room(name, location, capacity);
+		new Room(location, capacity, name);
 	}
 	
 	@Test
@@ -82,7 +82,7 @@ public class RoomTest {
 		String location = " 08.01 ";
 		int capacity = -10;
 		
-		new Room(name, location, capacity);
+		new Room(location, capacity, name);
 	}
 	
 	// voegt een facility(beamer) toe aan een room
@@ -93,7 +93,7 @@ public class RoomTest {
 		int capacity = 8;
 		
 		//nieuwe kamer aanmaker
-		Room room = new Room(name, location, capacity);
+		Room room = new Room(location, capacity, name);
 		
 		Facility facility = new Facility("Beamer");
 		
