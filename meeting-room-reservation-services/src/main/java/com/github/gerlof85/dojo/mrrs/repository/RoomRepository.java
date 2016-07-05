@@ -2,44 +2,48 @@ package com.github.gerlof85.dojo.mrrs.repository;
 
 import com.github.gerlof85.dojo.mrrs.domain.Room;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RoomRepository {
-
-	private Room room;
-	private String locatieReturn;
-	private int aantalKamers = 0;
-
-	ArrayList<Room> rooms = new ArrayList<Room>();
+//	private ArrayList<Room> rooms = new ArrayList<Room>();
+	private Map<String, Room> rooms = new HashMap<>();
 	
+
 	public void add(Room room) {
-		rooms.add( room );
-	}
-
-	public String getByLocation(String locatie) {
-		//this.location = room.getLocation();
-		
-		locatieReturn = "No rooms available with this location number";
-				
-		//searchRoom(locatie);
-		for (Room r : rooms){
-			if(r.getLocation().contains(locatie)){
-				locatieReturn = locatie;
-			} 
+		if (rooms.containsKey(room.getLocation())) {
+			throw new IllegalArgumentException("Argument 'room' with location '" + room.getLocation() + "' has already been added.'");
 		}
 		
-		return locatieReturn;
+		rooms.put(room.getLocation(), room);
+//		rooms.add( room );
 	}
 
-	public int getCapacity(String locatie) {
-		int capaciteit = 0;
-		
-		for (Room r : rooms){
-			if(r.getLocation().contains(locatie)){
-				capaciteit = r.getCapacity();
-			}
+	public Room getByLocation(String locatie) {
+		if (! rooms.containsKey(locatie)) {
+			throw new IllegalArgumentException("Argument 'locatie' with value '" + locatie + "' is not a known room.");
 		}
-		return capaciteit;
+
+		return rooms.get(locatie);
+		
+//		for (Room room : rooms) {
+//			if (room.getLocation().equalsIgnoreCase(locatie)) {
+//				return room;
+//			} 
+//		}
+		
 	}
+
+//	public int getCapacity(String locatie) {
+//		int capaciteit = 0;
+//		
+//		for (Room r : rooms){
+//			if(r.getLocation().contains(locatie)){
+//				capaciteit = r.getCapacity();
+//			}
+//		}
+//		return capaciteit;
+//	}
 
 	/*  old inefficient code
 		//this.room = room;
