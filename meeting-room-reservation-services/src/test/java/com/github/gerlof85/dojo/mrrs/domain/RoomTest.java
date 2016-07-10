@@ -100,5 +100,8 @@ public class RoomTest {
 		room.add(facility);
 		
 		assertEquals("Beamer", room.getFacility());
+		assertEquals(8, room.getCapacity());
+		assertEquals("01.13", room.getLocation());
+		assertEquals(null, room.getName());
 	}
 }
