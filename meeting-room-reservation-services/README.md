@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gerlof85/meeting-room-system.svg?branch=master)](https://travis-ci.org/gerlof85/meeting-room-system)
+
 # README #
 
 Dojo Java: meeting room reservation system (mrrs)
