@@ -52,5 +52,7 @@ public class RoomRepositoryTest {
 	    
 	    RoomRepository roomRepo = CsvRoomRepository.create(new StringReader(bldr.toString()));
 	    //Room room = roomRepo.search("1.14");
+	    //assertEquals("1.14", roomRepo.getByLocation("1.14").getLocation());
+	    
 	}
 }
