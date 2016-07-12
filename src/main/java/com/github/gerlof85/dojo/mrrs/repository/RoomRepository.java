@@ -34,6 +34,11 @@ public class RoomRepository {
 		
 	}
 
+	public Room search(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 //	public int getCapacity(String locatie) {
 //		int capaciteit = 0;
 //		
