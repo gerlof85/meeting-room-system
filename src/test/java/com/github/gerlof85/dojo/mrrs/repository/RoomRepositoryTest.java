@@ -42,17 +42,16 @@ public class RoomRepositoryTest {
 	@Test
 	public void createBuilder() throws Exception {
 	    StringBuilder bldr = new StringBuilder();
-	    bldr.append("name; location; capacity, facilities\n");
-	    bldr.append("Amsterdam; 1.14; 12; Beamer\n");
-	    bldr.append("Berlin; 1.10; 10; \n");
+	    //bldr.append("location; capacity; name; facilities\n");
+	    bldr.append("1.14; 12; Amsterdam; Beamer\n");
+	    bldr.append("1.10; 10; Berlin; Phone\n");
 
 //	    System.out.println(bldr.toString());
-
 	    //assertEquals("01.12", bldr.g("01.12").getLocation());
 	    
 	    RoomRepository roomRepo = CsvRoomRepository.create(new StringReader(bldr.toString()));
 	    //Room room = roomRepo.search("1.14");
-	    //assertEquals("1.14", roomRepo.getByLocation("1.14").getLocation());
-	    
+	    assertEquals("Amsterdam", roomRepo.getByLocation("1.14").getName());
+	    assertEquals("Phone", roomRepo.getByLocation("1.10").getFacility());
 	}
 }

@@ -24,6 +24,23 @@ public class Room {
 		this.capacity = capacity;
 	}
 
+	//versie incl facility
+	public Room(String location, int capacity, String name, Facility facility) {
+		String nameCln = StringUtils.trimToNull(name);
+		String locationCln = StringUtils.trimToNull(location);
+		if (locationCln == null) {
+			throw new IllegalArgumentException("Argument 'location' should not be null.");
+		}
+		if (capacity <= 0) {
+			throw new IllegalArgumentException("Argument 'capacity' with value '" + capacity + "' should be larger then 0.");
+		}
+				
+		this.name = nameCln;
+		this.location = locationCln;
+		this.capacity = capacity;
+		this.facility = facility;
+	}
+	
 	public String getName() {
 		return name;
 	}

@@ -7,6 +7,7 @@ import java.io.Reader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.github.gerlof85.dojo.mrrs.domain.Facility;
 import com.github.gerlof85.dojo.mrrs.domain.Room;
 
 public class CsvRoomRepository {
@@ -20,14 +21,13 @@ public class CsvRoomRepository {
 		try {
 			String line = null;
 			while ((line = lnr.readLine()) != null) {
-				//logger.info("  " + line);
-				String[] array = line.split("\\;", -1);
-				//logger.info(" split " + array[0]);
-				//Todo: line opknippen a/h/v/ mapColumnNameToProperty (CSVeed)
-				//Room room = new Room(array[0], Integer.parseInt(array[1]), array[2]);
 				
-				roomRepository.add(new Room(array[0], 12, "Zehn"));
-				logger.info(roomRepository.getByLocation(array[0]).getLocation());				
+				//line opsplitsen in array (per regel)      -     logger.info("  " + line);
+				String[] array = line.split("\\;", -1);
+				
+				String capacityCln = array[1].trim();
+				roomRepository.add(new Room(array[0], Integer.parseInt(capacityCln), array[2],new Facility(array[3])));
+					
 				}
 		}
 		catch (IOException e) {
@@ -35,7 +35,7 @@ public class CsvRoomRepository {
 			e.printStackTrace();
 		}
 		
-		return null;
+		return roomRepository;
 	}
 	
 }
