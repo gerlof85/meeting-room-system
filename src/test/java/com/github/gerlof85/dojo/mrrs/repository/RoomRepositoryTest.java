@@ -43,7 +43,7 @@ public class RoomRepositoryTest {
 	public void createBuilder() throws Exception {
 	    StringBuilder bldr = new StringBuilder();
 	    //bldr.append("location; capacity; name; facilities\n");
-	    bldr.append("1.14; 12; Amsterdam; Beamer\n");
+	    bldr.append("1.14; 12; Amsterdam; Beamer, Computer\n");
 	    bldr.append("1.10; 10; Berlin; Phone\n");
 
 //	    System.out.println(bldr.toString());
@@ -53,5 +53,6 @@ public class RoomRepositoryTest {
 	    //Room room = roomRepo.search("1.14");
 	    assertEquals("Amsterdam", roomRepo.getByLocation("1.14").getName());
 	    assertEquals("Phone", roomRepo.getByLocation("1.10").getFacility());
+	    assertEquals("Computer", roomRepo.getByLocation("1.14").getFacility());
 	}
 }

@@ -3,6 +3,8 @@ package com.github.gerlof85.dojo.mrrs.repository;
 import java.io.IOException;
 import java.io.LineNumberReader;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +29,16 @@ public class CsvRoomRepository {
 				
 				String capacityCln = array[1].trim();
 				roomRepository.add(new Room(array[0], Integer.parseInt(capacityCln), array[2],new Facility(array[3])));
-					
+				
+				String faciliteiten = array[3];
+				
+				ArrayList aList= new ArrayList(Arrays.asList(faciliteiten.split(",")));
+				for(int i=0;i<aList.size();i++)
+				{
+				    roomRepository.getByLocation(array[0]).add(new Facility((String) aList.get(i)));
+					//System.out.println(" -->"+aList.get(i));
+				}
+				
 				}
 		}
 		catch (IOException e) {
