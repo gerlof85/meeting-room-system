@@ -60,5 +60,9 @@ public class Room {
 	public String getFacility() {
 		return facility.getName();
 	}
+	
+	public String getFacilityAndNr() {
+		return facility.getNameNr();
+	}
 
 }

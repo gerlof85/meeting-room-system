@@ -15,17 +15,15 @@ public class Facility {
 		}	
 	}
 	
-	public Facility(String soortFacility, int facilityNummer) {
-		facilityNummer = 0;
-		
+	public Facility(String soortFacility, int facilityNummer) {	
 		soortFacilityCln = StringUtils.trimToNull(soortFacility);
 		this.facilityNummer = facilityNummer;
 		if (soortFacilityCln == null) {
 			throw new IllegalArgumentException("Name of facility should not be null.");
 		}	
-		if (facilityNummer == 0) {
-			throw new IllegalArgumentException("Number of facility should be provided.");
-		}
+		//if (facilityNummer == 0) {
+		//	throw new IllegalArgumentException("Number of facility should be provided.");
+		//}
 	}
 
 	//getter voor faci. naam
@@ -36,7 +34,6 @@ public class Facility {
 	//getter voor faci. naam
 	public String getNameNr() {
 		String nummerName = Integer.toString(facilityNummer) + " " + soortFacilityCln;
-		
 		return nummerName;
 	}
 

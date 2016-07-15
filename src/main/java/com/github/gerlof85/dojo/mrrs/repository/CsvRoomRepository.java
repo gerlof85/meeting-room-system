@@ -15,7 +15,7 @@ import com.github.gerlof85.dojo.mrrs.domain.Room;
 public class CsvRoomRepository {
 	private static Logger logger = LoggerFactory.getLogger(CsvRoomRepository.class);
 	
-	// static of niet
+	// create roomrepo with input comma separated string to an object containing rooms/facilities
 	public static RoomRepository create(final Reader reader) {
 		RoomRepository roomRepository = new RoomRepository();
 		LineNumberReader lnr = new LineNumberReader(reader);
@@ -25,20 +25,22 @@ public class CsvRoomRepository {
 			while ((line = lnr.readLine()) != null) {
 				
 				//line opsplitsen in array (per regel)      -     logger.info("  " + line);
-				String[] array = line.split("\\;", -1);
+				String[] regel = line.split("\\;", -1);
+				//array regel: 0 = ruimtenr, 1 = capaciteit, 2 = naam, 3 = faciliteit(en) comma gescheiden
 				
-				String capacityCln = array[1].trim();
-				roomRepository.add(new Room(array[0], Integer.parseInt(capacityCln), array[2],new Facility(array[3])));
+				String capacityCln = regel[1].trim();
+				roomRepository.add(new Room(regel[0], Integer.parseInt(capacityCln), regel[2],new Facility(regel[3])));
 				
-				String faciliteiten = array[3];
+				String faciliteiten = regel[3];
 				
+				//faciliteiten in arraylist stoppen en vervolgens objecten van aanmaken
 				ArrayList aList= new ArrayList(Arrays.asList(faciliteiten.split(",")));
-				for(int i=0;i<aList.size();i++)
-				{
-				    roomRepository.getByLocation(array[0]).add(new Facility((String) aList.get(i)));
-					//System.out.println(" -->"+aList.get(i));
-				}
 				
+					for(int i=0;i<aList.size();i++)		
+					{
+					    roomRepository.getByLocation(regel[0]).add(new Facility((String) aList.get(i), i + 1));
+					    //logger.info("  " + aList.get(i));
+					}
 				}
 		}
 		catch (IOException e) {

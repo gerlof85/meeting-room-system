@@ -25,6 +25,9 @@ public class RoomRepository {
 		}
 
 		return rooms.get(locatie);
+	}	
+		
+	
 		
 //		for (Room room : rooms) {
 //			if (room.getLocation().equalsIgnoreCase(locatie)) {
@@ -32,7 +35,7 @@ public class RoomRepository {
 //			} 
 //		}
 		
-	}
+
 
 	public Room search(String string) {
 		// TODO Auto-generated method stub

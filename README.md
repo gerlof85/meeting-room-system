@@ -30,4 +30,12 @@ Feature: make reservation
 ### Todo ###
 - [x] Write user scenario's
 - [x] Facility
-- [ ] Room
+- [x] Room
+- [x] RoomRepository
+- [/] csvRoomRepository (converts comma separated into roomrepo which contains rooms and facilities within rooms 
+	  / means almost completed, still requires selection mechanism for the facilities, now it only returns the last 
+	  added facility
+- [ ] csv file reader
+- [ ] web page to display the rooms
+- [ ] selenide implementation
+- [ ] something for adding a reservation
