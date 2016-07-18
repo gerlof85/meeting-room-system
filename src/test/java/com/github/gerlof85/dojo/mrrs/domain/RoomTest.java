@@ -2,6 +2,9 @@ package com.github.gerlof85.dojo.mrrs.domain;
 
 import static org.junit.Assert.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -91,17 +94,47 @@ public class RoomTest {
 		String name = "";
 		String location = "01.13";
 		int capacity = 8;
+	
 		
+		//Facility facility = new Facility("Beamer");
+		
+		Set<Facility> facilities = new HashSet<>();
+		facilities.add(new Facility("Beamer"));
+	
 		//nieuwe kamer aanmaker
-		Room room = new Room(location, capacity, name);
+		Room room = new Room(location, capacity, name, facilities);
 		
-		Facility facility = new Facility("Beamer");
+		//room.add(facilities);
 		
-		room.add(facility);
-		
-		assertEquals("Beamer", room.getFacility());
+		assertEquals("Beamer", room.toStringFacilities());
+		assertEquals(facilities, room.getFacilities());
 		assertEquals(8, room.getCapacity());
 		assertEquals("01.13", room.getLocation());
 		assertEquals(null, room.getName());
+	}
+	
+	// voegt een facility(beamer) toe aan een room
+	@Test
+	public void addMultipleFacilities() throws Exception {
+		String name = "";
+		String location = "01.13";
+		int capacity = 8;
+		
+		Set<Facility> facilities = new HashSet<>();
+		
+		facilities.add(new Facility("Beamer"));
+		facilities.add(new Facility("Whiteboard"));
+		
+		//nieuwe room aanmaker
+		Room room = new Room(location, capacity, name, facilities);
+
+		assertEquals("Whiteboard, Beamer", room.toStringFacilities());
+		assertEquals(facilities, room.getFacilities());
+		assertEquals(8, room.getCapacity());
+		assertEquals("01.13", room.getLocation());
+		assertEquals(null, room.getName());
+		
+		assertEquals(true, room.hasFacility("Whiteboard")); //hasFacility checks
+		assertNotEquals(true, room.hasFacility("Coffeemaker"));
 	}
 }

@@ -1,5 +1,6 @@
 package com.github.gerlof85.dojo.mrrs.domain;
 
+import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 
 public class Room {
@@ -7,7 +8,7 @@ public class Room {
 	private final String name;
 	private final String location;
 	private final int capacity;
-	private Facility facility;
+	private Set<Facility> facilities;
 
 	public Room(String location, int capacity, String name) {
 		String nameCln = StringUtils.trimToNull(name);
@@ -25,7 +26,7 @@ public class Room {
 	}
 
 	//versie incl facility
-	public Room(String location, int capacity, String name, Facility facility) {
+	public Room(String location, int capacity, String name, Set<Facility> facilities) {
 		String nameCln = StringUtils.trimToNull(name);
 		String locationCln = StringUtils.trimToNull(location);
 		if (locationCln == null) {
@@ -38,7 +39,7 @@ public class Room {
 		this.name = nameCln;
 		this.location = locationCln;
 		this.capacity = capacity;
-		this.facility = facility;
+		this.facilities = facilities;
 	}
 	
 	public String getName() {
@@ -53,16 +54,48 @@ public class Room {
 		return capacity;
 	}
 
-	public void add(Facility facility) {
-		this.facility = facility;
+	public void add(Set<Facility> facility) {
+		facilities.add((Facility) facility);
 	}
 
-	public String getFacility() {
-		return facility.getName();
+	public Set<Facility> getFacilities(){
+		return facilities;
 	}
 	
-	public String getFacilityAndNr() {
-		return facility.getNameNr();
+	public Facility getFacility(){
+		Facility fac = new Facility("Coffeemaker");
+		
+		for (Facility facility : facilities ) {
+			if(facility.equals(fac)) {
+				System.out.println("fac gevonden");
+				//return facility;
+			}
+		}
+		return fac;
+	}
+	
+	public String toStringFacilities() {
+		StringBuilder bldr = new StringBuilder();
+		for (Facility facility : facilities) {
+			if (bldr.length() > 0) {
+				bldr.append(", ");
+			}
+			bldr.append(facility.getName());
+		}
+		return bldr.toString();
+	}
+
+	public boolean hasFacility(String facilityName) {
+		Facility fac = new Facility(facilityName);
+		boolean facExists = false;
+		
+		for (Facility facility : facilities ) {
+			if(facility.getName().equals(fac.getName())) {
+				//System.out.println("fac gevonden");
+				facExists = true;
+			}
+		}
+		return facExists;
 	}
 
 }
