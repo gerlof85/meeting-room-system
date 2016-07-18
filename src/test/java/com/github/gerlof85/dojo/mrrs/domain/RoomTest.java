@@ -2,7 +2,7 @@ package com.github.gerlof85.dojo.mrrs.domain;
 
 import static org.junit.Assert.*;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.junit.Rule;
@@ -98,7 +98,7 @@ public class RoomTest {
 		
 		//Facility facility = new Facility("Beamer");
 		
-		Set<Facility> facilities = new HashSet<>();
+		Set<Facility> facilities = new LinkedHashSet<>();
 		facilities.add(new Facility("Beamer"));
 	
 		//nieuwe kamer aanmaker
@@ -120,7 +120,7 @@ public class RoomTest {
 		String location = "01.13";
 		int capacity = 8;
 		
-		Set<Facility> facilities = new HashSet<>();
+		Set<Facility> facilities = new LinkedHashSet<>();
 		
 		facilities.add(new Facility("Beamer"));
 		facilities.add(new Facility("Whiteboard"));
@@ -128,7 +128,7 @@ public class RoomTest {
 		//nieuwe room aanmaker
 		Room room = new Room(location, capacity, name, facilities);
 
-		assertEquals("Whiteboard, Beamer", room.toStringFacilities());
+		assertEquals("Beamer, Whiteboard", room.toStringFacilities());
 		assertEquals(facilities, room.getFacilities());
 		assertEquals(8, room.getCapacity());
 		assertEquals("01.13", room.getLocation());

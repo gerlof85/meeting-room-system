@@ -23,7 +23,7 @@ public class CsvRoomRepository {
 		RoomRepository roomRepository = new RoomRepository();
 		LineNumberReader lnr = new LineNumberReader(reader);
 		Set<Facility> facilities = new LinkedHashSet<>();
-		Set<Facility> facilities2 = new HashSet<>();
+		Set<Facility> facilities2 = new LinkedHashSet<>();
 		
 		try {
 			String line = null;
