@@ -6,7 +6,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
+import java.util.TreeSet;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -22,8 +22,9 @@ public class CsvRoomRepository {
 	public static RoomRepository create(final Reader reader) {
 		RoomRepository roomRepository = new RoomRepository();
 		LineNumberReader lnr = new LineNumberReader(reader);
-		Set<Facility> facilities = new LinkedHashSet<>();
-		Set<Facility> facilities2 = new LinkedHashSet<>();
+		Set<Facility> facilities = new HashSet<>();
+		TreeSet<Facility> facTreeSet = new TreeSet<>();
+		Set<Facility> facilities2 = new HashSet<>();
 		
 		try {
 			String line = null;
@@ -41,7 +42,7 @@ public class CsvRoomRepository {
 				
 				for(int i=0;i<aList.size();i++)	 //na splitten faciliteiten aan HashSet toevoegen	
 				{
-						facilities.add(new Facility(aList.get(i)));
+					facilities.add(new Facility(aList.get(i)));
 				}
 				// nieuwe kamer incl. faciliteiten aanmaken
 				roomRepository.add(new Room(regel[0], Integer.parseInt(capacityCln), regel[2], facilities));
