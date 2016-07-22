@@ -5,7 +5,7 @@ import java.io.LineNumberReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.TreeSet;
 import java.util.Set;
 
@@ -22,9 +22,9 @@ public class CsvRoomRepository {
 	public static RoomRepository create(final Reader reader) {
 		RoomRepository roomRepository = new RoomRepository();
 		LineNumberReader lnr = new LineNumberReader(reader);
-		Set<Facility> facilities = new HashSet<>();
-		TreeSet<Facility> facTreeSet = new TreeSet<>();
-		Set<Facility> facilities2 = new HashSet<>();
+		Set<Facility> facilities = new LinkedHashSet<>();
+//		TreeSet<Facility> facTreeSet = new TreeSet<>();
+		Set<Facility> facilities2 = new LinkedHashSet<>();
 		
 		try {
 			String line = null;
