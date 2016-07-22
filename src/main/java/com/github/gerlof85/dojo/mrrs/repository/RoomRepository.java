@@ -2,14 +2,13 @@ package com.github.gerlof85.dojo.mrrs.repository;
 
 import com.github.gerlof85.dojo.mrrs.domain.Facility;
 import com.github.gerlof85.dojo.mrrs.domain.Room;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
 public class RoomRepository {
 //	private ArrayList<Room> rooms = new ArrayList<Room>();
-	private Map<String, Room> rooms = new HashMap<>();
+	private Map<String, Room> rooms = new LinkedHashMap<>();
 	
 
 	public void add(Room room) {

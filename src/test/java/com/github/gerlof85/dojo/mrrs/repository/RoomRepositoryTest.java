@@ -55,7 +55,7 @@ public class RoomRepositoryTest {
 	    //Room room = roomRepo.search("1.14");
 	    assertEquals("Amsterdam", roomRepo.getByLocation("1.14").getName());
 	    assertEquals("Coffeemaker", roomRepo.getByLocation("1.10").getFacility().getName());
-	    assertEquals("Beamer, Computer", roomRepo.getByLocation("1.14").toStringFacilities());
+	    assertEquals("Computer, Beamer", roomRepo.getByLocation("1.14").toStringFacilities());
 	    
 	    //assertEquals("1 Beamer", roomRepo.getByLocation("1.14").getFacilityAndNr());
 	    //assertEquals("2 Computer", roomRepo.getByLocation("1.14").getFacilities());
