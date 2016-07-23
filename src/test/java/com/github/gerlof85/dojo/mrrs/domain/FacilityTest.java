@@ -33,6 +33,14 @@ public class FacilityTest {
 	}
 	
 	@Test
+	public void facilityNameEmpty() throws Exception {
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage("Name of facility should not be null.");
+		
+		Facility facility = new Facility(null);
+	}
+	
+	@Test
 	public void facilityWithNumberAndNameEmpty() throws Exception {
 		exception.expect(IllegalArgumentException.class);
 		exception.expectMessage("Name of facility(with nr) should not be null.");

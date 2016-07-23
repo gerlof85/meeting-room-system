@@ -9,6 +9,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import com.github.gerlof85.dojo.mrrs.repository.RoomRepository;
+
 public class RoomTest {
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
@@ -51,6 +53,31 @@ public class RoomTest {
 		assertNull(room.getName());
 		assertEquals("01.14", room.getLocation());
 		assertEquals(2, room.getCapacity());
+	}
+	
+	@Test
+	public void createRoomSeperateFacility() throws Exception {
+		String name = null;
+		String location = " 01.14\t ";
+		int capacity = 2;
+		
+//		RoomRepository roomRepo = new RoomRepository();
+//		Set<Facility> facilities3 = new LinkedHashSet<>();
+//		facilities3.add(new Facility("Table, Plant"));
+//		
+//		roomRepo.add(new Room("1.16", 17, "Stockholm", facilities3));
+		
+		
+		Set<Facility> facilities = new LinkedHashSet<>();
+		facilities.add(new Facility("Full HD Beamer"));
+		
+		Room room = new Room(location, capacity, name);
+		room.replaceFacilities(facilities);
+		
+		assertNull(room.getName());
+		assertEquals("01.14", room.getLocation());
+		assertEquals(2, room.getCapacity());
+		assertEquals("Full HD Beamer", room.toStringFacilities());
 	}
 	
 	@Test
@@ -113,6 +140,38 @@ public class RoomTest {
 		assertEquals(null, room.getName());
 	}
 	
+	@Test
+	public void addFacilityLocationNull() throws Exception {
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage("Argument 'location' should not be null.");
+		
+		String name = "";
+		String location = null;
+		int capacity = 8;
+		
+		Set<Facility> facilities = new LinkedHashSet<>();
+		facilities.add(new Facility("Beamer"));
+	
+		//nieuwe kamer aanmaker
+		Room room = new Room(location, capacity, name, facilities);
+	}
+	
+	@Test
+	public void addFacilityCapacityNegative() throws Exception {
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage("Argument 'capacity' with value '-8' should be larger then 0");
+		
+		String name = "";
+		String location = "1.81";
+		int capacity = -8;
+		
+		Set<Facility> facilities = new LinkedHashSet<>();
+		facilities.add(new Facility("Beamer"));
+	
+		//nieuwe kamer aanmaker
+		Room room = new Room(location, capacity, name, facilities);
+	}
+	
 	// voegt een facility(beamer) toe aan een room
 	@Test
 	public void addMultipleFacilities() throws Exception {
@@ -136,5 +195,6 @@ public class RoomTest {
 		
 		assertEquals(true, room.hasFacility("Whiteboard")); //hasFacility checks
 		assertNotEquals(true, room.hasFacility("Coffeemaker"));
+		
 	}
 }

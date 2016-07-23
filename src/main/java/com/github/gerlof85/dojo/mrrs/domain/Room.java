@@ -54,27 +54,27 @@ public class Room {
 		return capacity;
 	}
 
-	public void add(Set<Facility> facility) {
-		facilities.add((Facility) facility);
+	public void replaceFacilities(Set<Facility> facilities2) {
+		this.facilities = facilities2;
 	}
 
 	public Set<Facility> getFacilities(){
 		return facilities;
 	}
 	
-	public Set<Facility> getFacility(){
-		Set<Facility> selectedFacilities = null;
-		//Facility fac = new Facility("Coffeemaker");
-		
-		for (Facility facility : facilities ) {
-			if(facility.equals(facilities)) {
-				selectedFacilities.add(facility);
-				//System.out.println("fac gevonden");
-				//return facility;
-			}
-		}
-		return selectedFacilities;
-	}
+//	public Set<Facility> getFacility(){
+//		Set<Facility> selectedFacilities = null;
+//		//Facility fac = new Facility("Coffeemaker");
+//		
+//		for (Facility facility : facilities ) {
+//			if(facility.equals(facilities)) {
+//				selectedFacilities.add(facility);
+//				//System.out.println("fac gevonden");
+//				//return facility;
+//			}
+//		}
+//		return selectedFacilities;
+//	}
 	
 	public String toStringFacilities() {
 		StringBuilder bldr = new StringBuilder();

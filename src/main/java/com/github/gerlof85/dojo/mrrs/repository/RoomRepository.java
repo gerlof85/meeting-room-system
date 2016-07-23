@@ -45,33 +45,10 @@ public class RoomRepository {
 //		}
 		
 
-
 	public Room search(String string) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-//	public int getCapacity(String locatie) {
-//		int capaciteit = 0;
-//		
-//		for (Room r : rooms){
-//			if(r.getLocation().contains(locatie)){
-//				capaciteit = r.getCapacity();
-//			}
-//		}
-//		return capaciteit;
-//	}
-
-	/*  old inefficient code
-		//this.room = room;
-		//aantalKamers ++; 
-	  
-	for (int i = 0; i <= aantalKamers; i++) {
-		if (room.getLocation().contains(locatie)) {
-			//zelfde vragen als bij getCapacity
-			locatieReturn = locatie;
-		}
-	}
-	return locatieReturn;		*/
 	
 }
