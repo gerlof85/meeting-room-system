@@ -6,3 +6,4 @@ Given a room with name "Berlin", location "1.12" and capacity 12 and facility "m
 #    And which has facility "whiteboard"
 When searching for room with location "1.12"
 Then the room with name "Berlin" should be returned
+And the room should have facility "mouse"

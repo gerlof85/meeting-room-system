@@ -19,10 +19,10 @@ public class FindRoomByLocationSteps {
 	
 	@Given("^a room with name \"(.*?)\", location \"(.*?)\" and capacity (\\d+) and facility \"(.*?)\"$")
 	public void a_room_with_name_location_and_capacity_and_facility(String name, String location, int capacity, String facs) throws Throwable {
-		Set<Facility> facilities = new LinkedHashSet<>();
-		facilities.add(new Facility(facs));
+		Set<Facility> facilities3 = new LinkedHashSet<>();
+		facilities3.add(new Facility(facs));
 		
-		roomRepo.add(new Room(location, capacity, name, facilities));
+		roomRepo.add(new Room(location, capacity, name, facilities3));
 		currentRoom = roomRepo.getByLocation(location);
 //	    throw new PendingException();
 	}
@@ -51,6 +51,12 @@ public class FindRoomByLocationSteps {
 		assertEquals(name,currentRoom.getName());
 //		System.out.println("sysout " + currentRoom.getLocation());
 //	    throw new PendingException();
+	}
+	
+	@Then("^the room should have facility \"(.*?)\"$")
+	public void the_room_should_have_facility(String facility) throws Throwable {
+		assertEquals(facility,currentRoom.toStringFacilities());
+	    //throw new PendingException();
 	}
 	
 }

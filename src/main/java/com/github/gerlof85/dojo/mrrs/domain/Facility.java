@@ -19,7 +19,7 @@ public class Facility {
 		soortFacilityCln = StringUtils.trimToNull(soortFacility);
 		this.facilityNummer = facilityNummer;
 		if (soortFacilityCln == null) {
-			throw new IllegalArgumentException("Name of facility should not be null.");
+			throw new IllegalArgumentException("Name of facility(with nr) should not be null.");
 		}	
 		//if (facilityNummer == 0) {
 		//	throw new IllegalArgumentException("Number of facility should be provided.");

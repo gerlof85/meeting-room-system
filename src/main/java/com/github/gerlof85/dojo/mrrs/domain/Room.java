@@ -62,16 +62,18 @@ public class Room {
 		return facilities;
 	}
 	
-	public Facility getFacility(){
-		Facility fac = new Facility("Coffeemaker");
+	public Set<Facility> getFacility(){
+		Set<Facility> selectedFacilities = null;
+		//Facility fac = new Facility("Coffeemaker");
 		
 		for (Facility facility : facilities ) {
-			if(facility.equals(fac)) {
-				System.out.println("fac gevonden");
+			if(facility.equals(facilities)) {
+				selectedFacilities.add(facility);
+				//System.out.println("fac gevonden");
 				//return facility;
 			}
 		}
-		return fac;
+		return selectedFacilities;
 	}
 	
 	public String toStringFacilities() {
