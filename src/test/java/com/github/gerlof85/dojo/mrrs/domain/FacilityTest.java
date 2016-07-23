@@ -47,4 +47,28 @@ public class FacilityTest {
 		
 		Facility facility = new Facility(null, 0);
 	}
+	
+	@Test
+	public void createMultipleFacilities() throws Exception {
+		Facility facility = new Facility("Beamer");
+		facility.add("1.20", new Facility("Commodore64"));
+		facility.add("1.20", new Facility("486 pc"));
+		facility.add("1.22", new Facility("Pentium III"));
+		
+		assertEquals("Pentium III",facility.getFacilitiesByLocation("1.22").getName());
+		//TODO: return string or multiple objects
+		
+		//System.out.println("  " + facility.getFacilitiesByLocation("1.20").toString());
+	}
+	
+	@Test
+	public void facilityLocDoesntExist() throws Exception {
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage("Argument 'locatie' with value '1.21' has no facilities.");
+		
+		Facility facility = new Facility("Beamer");
+		facility.add("1.20", new Facility("Commodore64"));
+		
+		facility.getFacilitiesByLocation("1.21").getName();
+	}
 }
