@@ -47,7 +47,8 @@ public class FacilityTest {
 		
 		Facility facility = new Facility(null, 0);
 	}
-	
+
+/*
 	@Test
 	public void createMultipleFacilities() throws Exception {
 		Facility facility = new Facility("Beamer");
@@ -71,4 +72,5 @@ public class FacilityTest {
 		
 		facility.getFacilitiesByLocation("1.21").getName();
 	}
+*/
 }

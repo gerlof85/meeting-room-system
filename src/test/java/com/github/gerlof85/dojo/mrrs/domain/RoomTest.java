@@ -179,13 +179,20 @@ public class RoomTest {
 		String location = "01.13";
 		int capacity = 8;
 		
+		String name2 = "";
+		String location2 = "01.14";
+		int capacity2 = 8;
+		
 		Set<Facility> facilities = new LinkedHashSet<>();
+		Set<Facility> facilities2 = new LinkedHashSet<>();
 		
 		facilities.add(new Facility("Beamer"));
 		facilities.add(new Facility("Whiteboard"));
+		facilities2.add(new Facility("Blackboard"));
 		
 		//nieuwe room aanmaker
 		Room room = new Room(location, capacity, name, facilities);
+		Room room2 = new Room(location2, capacity2, name2, facilities2);
 
 		assertEquals("Beamer, Whiteboard", room.toStringFacilities());
 		assertEquals(facilities, room.getFacilities());
@@ -195,6 +202,8 @@ public class RoomTest {
 		
 		assertEquals(true, room.hasFacility("Whiteboard")); //hasFacility checks
 		assertNotEquals(true, room.hasFacility("Coffeemaker"));
+		
+		assertEquals("Blackboard", room2.toStringFacilities());
 		
 	}
 }

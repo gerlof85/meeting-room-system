@@ -29,7 +29,8 @@ public class Facility {
 		//	throw new IllegalArgumentException("Number of facility should be provided.");
 		//}
 	}
-	
+
+/*	
 	public void add(String locatie, Facility facility) {
 		//if (facilities.containsKey(locatie)) {
 		//	throw new IllegalArgumentException("Argument 'facility' with location '" + locatie + "' has already been added.'");
@@ -45,7 +46,7 @@ public class Facility {
 		//TODO: return string or multiple objects
 		return facilities.get(locatie);
 	}
-	
+*/	
 
 	//getter voor faci. naam
 	public String getName() {
