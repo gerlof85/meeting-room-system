@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 
 public class SelenideTest {
 	
-	@Before
+	//@Before
 	//hier server starten?
 /*	
 	@Test  //jersey test
@@ -26,6 +26,7 @@ public class SelenideTest {
 		 // $("#username").shouldHave(text("Hello, Johny!")); // Waits until element gets text
 	}
 	*/
+	/*
 	@Test
 	public void meetingRooms() throws Exception {
 		open("/meetingrooms.html");
@@ -35,5 +36,5 @@ public class SelenideTest {
 		$(By.xpath(("//html/body/table/tbody/tr[2]/td[3]"))).shouldHave(text("12"));
 		$(By.xpath(("//html/body/table/tbody/tr[2]/td[4]"))).shouldHave(text("phone, beamer, plant"));
 	}
-	
+	*/
 }
