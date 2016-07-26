@@ -27,15 +27,14 @@ Feature: make reservation
 - Then the selected room is assigned to user for <time>
 
 
-### Todo ###
+### Todo ###  (/ means: basic setup is included)
 - [x] Write user scenario's
 - [x] Facility
 - [x] Room
 - [x] RoomRepository
-- [/] csvRoomRepository (converts comma separated into roomrepo which contains rooms and facilities within rooms 
-	  / means almost completed, still requires selection mechanism for the facilities, now it only returns the last 
-	  added facility
+- [x] csvRoomRepository (converts comma separated into roomrepo which contains rooms and facilities within rooms 
+- [x] selenide test with static rooms overview web page (runs with Jetty)
+- [ ] dynamic rooms overview web page, based on csv input
 - [ ] csv file reader
-- [ ] web page to display the rooms
-- [ ] selenide implementation
+- [/] selenide implementation
 - [ ] something for adding a reservation
