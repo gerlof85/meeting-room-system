@@ -2,7 +2,9 @@ package com.github.gerlof85.dojo.mrrs.repository;
 
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.io.StringReader;
 
 import org.junit.Rule;
@@ -44,10 +46,13 @@ public class CsvRoomRepositoryTest {
 	
 	@Test
 	public void fileDoesntExist() throws Exception {
-		exception.expect(FileNotFoundException.class);
-		exception.expectMessage("src\\mock.csv (Het systeem kan het opgegeven bestand niet vinden)");
+		//exception.expect(FileNotFoundException.class);
+		//exception.expectMessage("src\\mock.csv (Het systeem kan het opgegeven bestand niet vinden)");
+		final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+		System.setErr(new PrintStream(outContent));
 		
 		StringBuilder bldr = new ReadFile().ReadCSVFile("src/mock.csv");
+		assertNotNull(outContent.toString());
 	}
 	
 }

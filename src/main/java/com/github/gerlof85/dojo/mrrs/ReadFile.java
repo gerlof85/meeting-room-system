@@ -34,8 +34,8 @@ public class ReadFile {
 		            bufferedReader.close();         
 		        }
 		        catch(FileNotFoundException ex) {
-		        	//System.err.println("FileNotFoundException: " + ex.getMessage());
-		        	throw ex;
+		        	System.err.println("FileNotFoundException: " + ex.getMessage());
+		        	//throw ex;
 		        	//System.out.println("Unable to open file '" + fileName + "'");                
 		        }
 		        catch(IOException ex) {
