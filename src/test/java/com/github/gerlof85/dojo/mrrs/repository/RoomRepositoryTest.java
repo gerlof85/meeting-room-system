@@ -1,6 +1,11 @@
 package com.github.gerlof85.dojo.mrrs.repository;
 
 import static org.junit.Assert.*;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.StringReader;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -9,6 +14,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import com.github.gerlof85.dojo.mrrs.ReadFile;
 import com.github.gerlof85.dojo.mrrs.domain.Facility;
 import com.github.gerlof85.dojo.mrrs.domain.Room;
 
@@ -80,17 +86,16 @@ public class RoomRepositoryTest {
 	@Test
 	public void createBuilder() throws Exception {
 	    StringBuilder bldr = new StringBuilder();
+	    
 	    bldr.append("location; capacity; name; facilities\n");
 	    bldr.append("  1.14   ; 12; Amsterdam   ; Beamer, Computer\n");
 	    bldr.append("1.10; 10; Berlin; Phone\n");
 
-//	    System.out.println(bldr.toString());
-	    //assertEquals("01.12", bldr.g("01.12").getLocation());
-	    
 	    RoomRepository roomRepo = CsvRoomRepository.create(new StringReader(bldr.toString()));
 	    //Room room = roomRepo.search("1.14");
 	    assertEquals("Amsterdam", roomRepo.getByLocation("1.14").getName());
 	    assertEquals("Beamer, Computer", roomRepo.getByLocation("1.14").toStringFacilities());
 	    assertEquals("Phone", roomRepo.getByLocation("1.10").toStringFacilities());   
 	}
+
 }
