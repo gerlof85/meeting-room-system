@@ -1,4 +1,4 @@
-package com.github.gerlof85.dojo.mrrs.repository;
+package com.github.gerlof85.dojo.mrrs.repository.csv;
 
 import java.io.IOException;
 import java.io.LineNumberReader;
@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import com.github.gerlof85.dojo.mrrs.domain.Facility;
 import com.github.gerlof85.dojo.mrrs.domain.Room;
+import com.github.gerlof85.dojo.mrrs.repository.RoomRepository;
 
 import org.csveed.api.CsvClient;
 import org.csveed.api.CsvClientImpl;

@@ -1,4 +1,4 @@
-package com.github.gerlof85.dojo.mrrs.repository;
+package com.github.gerlof85.dojo.mrrs.repository.csv;
 
 import static org.junit.Assert.*;
 
@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import com.github.gerlof85.dojo.mrrs.ReadFile;
+import com.github.gerlof85.dojo.mrrs.repository.RoomRepository;
 
 public class CsvRoomRepositoryTest {
 	@Rule

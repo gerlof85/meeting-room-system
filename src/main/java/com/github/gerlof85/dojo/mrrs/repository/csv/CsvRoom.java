@@ -1,4 +1,4 @@
-package com.github.gerlof85.dojo.mrrs.repository;
+package com.github.gerlof85.dojo.mrrs.repository.csv;
 
 import java.util.Collections;
 import java.util.LinkedHashSet;

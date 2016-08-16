@@ -17,6 +17,7 @@ import org.junit.rules.ExpectedException;
 import com.github.gerlof85.dojo.mrrs.ReadFile;
 import com.github.gerlof85.dojo.mrrs.domain.Facility;
 import com.github.gerlof85.dojo.mrrs.domain.Room;
+import com.github.gerlof85.dojo.mrrs.repository.csv.CsvRoomRepository;
 
 public class RoomRepositoryTest {
 	@Rule
