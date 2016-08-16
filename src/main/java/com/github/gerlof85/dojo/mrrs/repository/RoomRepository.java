@@ -50,5 +50,9 @@ public class RoomRepository {
 		return null;
 	}
 
+	public int size() {
+		return rooms.size();
+	}
+
 	
 }
