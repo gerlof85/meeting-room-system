@@ -10,7 +10,6 @@ import java.util.Set;
 public class RoomRepository {
 //	private ArrayList<Room> rooms = new ArrayList<Room>();
 	private Map<String, Room> rooms = new LinkedHashMap<>();
-	private Set<Room> roomSet = new LinkedHashSet<>();
 	
 	public void add(Room room) {
 		if (rooms.containsKey(room.getLocation())) {
@@ -56,7 +55,6 @@ public class RoomRepository {
 	}
 
 	public Map<String, Room> getAll() {
-		//roomSet.add(rooms.get("1.08"));
 		return rooms;
 	}
 
