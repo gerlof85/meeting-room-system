@@ -3,14 +3,15 @@ package com.github.gerlof85.dojo.mrrs.repository;
 import com.github.gerlof85.dojo.mrrs.domain.Facility;
 import com.github.gerlof85.dojo.mrrs.domain.Room;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
 public class RoomRepository {
 //	private ArrayList<Room> rooms = new ArrayList<Room>();
 	private Map<String, Room> rooms = new LinkedHashMap<>();
+	private Set<Room> roomSet = new LinkedHashSet<>();
 	
-
 	public void add(Room room) {
 		if (rooms.containsKey(room.getLocation())) {
 			throw new IllegalArgumentException("Argument 'room' with location '" + room.getLocation() + "' has already been added.'");
@@ -54,5 +55,14 @@ public class RoomRepository {
 		return rooms.size();
 	}
 
-	
+	public Map<String, Room> getAll() {
+		//roomSet.add(rooms.get("1.08"));
+		return rooms;
+	}
+
+//	public Set<Room> getAll() {
+//		roomSet.add(rooms.get("1.08"));
+//		return roomSet;
+//	}
+
 }

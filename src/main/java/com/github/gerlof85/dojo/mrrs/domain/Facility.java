@@ -54,9 +54,9 @@ public class Facility {
 	}
 	
 	//getter voor faci. naam
-	public String getNameNr() {
-		String nummerName = Integer.toString(facilityNummer) + " " + soortFacilityCln;
-		return nummerName;
-	}
+//	public String getNameNr() {
+//		String nummerName = Integer.toString(facilityNummer) + " " + soortFacilityCln;
+//		return nummerName;
+//	}
 
 }
