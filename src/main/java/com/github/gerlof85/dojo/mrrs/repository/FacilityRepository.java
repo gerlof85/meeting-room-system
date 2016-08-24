@@ -12,7 +12,7 @@ public class FacilityRepository {
 	
 	public void add(Facility facility) {	
 		for (Facility fac : facilities) {
-			if (fac.getName() == facility.getName()) {
+			if (fac.getName().equalsIgnoreCase(facility.getName())) {
 				throw new IllegalArgumentException("Argument 'facility' with value '" + facility.getName() + "' has already been added.'");
 			}
 		}

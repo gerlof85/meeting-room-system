@@ -40,8 +40,11 @@ public class RoomService<JSon> {
 		return roomRepo.getAll().values();
 	}
 	
-//	public Set<Room> getAll() {
-//		return roomRepo.getAll();
+//	@GET
+//	@Path("/xml")
+//	@Produces(MediaType.APPLICATION_XML)
+//	public Collection<Room> getAllXml() {
+//		return roomRepo.getAll().values();
 //	}
 	
     /**
@@ -51,11 +54,10 @@ public class RoomService<JSon> {
      * @return String that will be returned as a text/plain response.
      * @throws FileNotFoundException 
      */
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Path("/{id}")
-//    public Room getIt(@PathParam("id") String id) throws FileNotFoundException { 	
-//        return roomRepo.getByLocation(id);
-//    }
-
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{id}")
+    public Room getIt(@PathParam("id") String id) throws FileNotFoundException { 	
+        return roomRepo.getByLocation(id);
+    }
 }

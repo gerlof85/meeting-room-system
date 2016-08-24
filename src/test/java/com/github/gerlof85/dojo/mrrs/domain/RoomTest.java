@@ -203,7 +203,23 @@ public class RoomTest {
 		assertEquals(true, room.hasFacility("Whiteboard")); //hasFacility checks
 		assertNotEquals(true, room.hasFacility("Coffeemaker"));
 		
-		assertEquals("Blackboard", room2.toStringFacilities());
+		assertEquals("Blackboard", room2.toStringFacilities());	
+	}
+	
+	@Test
+	public void addFacilityNotInRepo() throws Exception {
+		String invalidFac = "Commander";
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage("Argument 'facility' with value '" + invalidFac + "' is not a valid facility.");
 		
+		String name = "";
+		String location = "1.81";
+		int capacity = 8;
+		
+		Set<Facility> facilities = new LinkedHashSet<>();
+		facilities.add(new Facility(invalidFac));
+	
+		//nieuwe kamer aanmaker
+		Room room = new Room(location, capacity, name, facilities);
 	}
 }

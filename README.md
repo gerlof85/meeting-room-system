@@ -34,6 +34,8 @@ Feature: make reservation
 - [x] RoomRepository
 - [x] csvRoomRepository (converts comma separated into roomrepo which contains rooms and facilities within rooms 
 - [x] selenide test with static rooms overview web page (runs with Jetty)
+- [x] service for getting all rooms
+- [ ] facility repository (also reads from separate CSV)
 - [ ] dynamic rooms overview web page, based on csv input (todo)
 - [ ] csv file reader
 - [/] selenide implementation

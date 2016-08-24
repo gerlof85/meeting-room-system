@@ -3,6 +3,8 @@ package com.github.gerlof85.dojo.mrrs.domain;
 import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 
+import com.github.gerlof85.dojo.mrrs.repository.FacilityRepository;
+
 public class Room {
 
 	private final String name;
@@ -29,6 +31,18 @@ public class Room {
 	public Room(String location, int capacity, String name, Set<Facility> facilities) {
 		String nameCln = StringUtils.trimToNull(name);
 		String locationCln = StringUtils.trimToNull(location);
+		
+		FacilityRepository facRepo = new FacilityRepository();
+		
+		facRepo.add(new Facility("Computer"));
+		facRepo.add(new Facility("Phone"));
+		facRepo.add(new Facility("Beamer"));
+		facRepo.add(new Facility("Blackboard"));
+		facRepo.add(new Facility("Whiteboard"));
+		facRepo.add(new Facility("Coffeemaker"));
+		facRepo.add(new Facility("Table"));
+		facRepo.add(new Facility("Plant"));
+		
 		if (locationCln == null) {
 			throw new IllegalArgumentException("Argument 'location' should not be null.");
 		}
@@ -39,6 +53,14 @@ public class Room {
 		this.name = nameCln;
 		this.location = locationCln;
 		this.capacity = capacity;
+		
+		//Facilities controleren op aanwezigheid in Facility repository
+		
+		for (Facility fac : facilities) {
+			if (!facRepo.toStringFacilities().contains(fac.getName())) {
+				throw new IllegalArgumentException("Argument 'facility' with value '" + fac.getName() + "' is not a valid facility.'");
+			}
+		} //indien alles aanwezig in Repository
 		this.facilities = facilities;
 	}
 	

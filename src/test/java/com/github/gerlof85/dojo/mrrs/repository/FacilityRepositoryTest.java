@@ -35,5 +35,18 @@ public class FacilityRepositoryTest {
 		facRepo.add(new Facility("Phone"));
 		facRepo.add(new Facility("Phone"));
 	}
+
+	@Test
+	public void createSameName() throws Exception {
+		String eersteFac = "Phone";
+		String tweedeFac = "PhonE";
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage("Argument 'facility' with value '" + tweedeFac +"' has already been added.");
+		
+		FacilityRepository facRepo = new FacilityRepository();
+		
+		facRepo.add(new Facility(eersteFac));
+		facRepo.add(new Facility(tweedeFac));
+	}
 	
 }
