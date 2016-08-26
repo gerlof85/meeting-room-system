@@ -1,5 +1,6 @@
 package com.github.gerlof85.dojo.mrrs.domain;
 
+import java.io.FileNotFoundException;
 import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 
@@ -28,20 +29,11 @@ public class Room {
 	}
 
 	//versie incl facility
-	public Room(String location, int capacity, String name, Set<Facility> facilities) {
+	public Room(String location, int capacity, String name, Set<Facility> facilities) throws FileNotFoundException {
 		String nameCln = StringUtils.trimToNull(name);
 		String locationCln = StringUtils.trimToNull(location);
 		
-		FacilityRepository facRepo = new FacilityRepository();
-		
-		facRepo.add(new Facility("Computer"));
-		facRepo.add(new Facility("Phone"));
-		facRepo.add(new Facility("Beamer"));
-		facRepo.add(new Facility("Blackboard"));
-		facRepo.add(new Facility("Whiteboard"));
-		facRepo.add(new Facility("Coffeemaker"));
-		facRepo.add(new Facility("Table"));
-		facRepo.add(new Facility("Plant"));
+		FacilityRepository facRepo = FacilityRepository.createFromCSV("src/test/resources/facilities3.csv");
 		
 		if (locationCln == null) {
 			throw new IllegalArgumentException("Argument 'location' should not be null.");

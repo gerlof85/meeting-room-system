@@ -1,5 +1,6 @@
 package com.github.gerlof85.dojo.mrrs.repository.csv;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.LineNumberReader;
 import java.io.Reader;
@@ -27,7 +28,7 @@ public class CsvRoomRepository {
 	private static Logger logger = LoggerFactory.getLogger(CsvRoomRepository.class);
 	
 	// create roomrepo with input comma separated string to an object containing rooms/facilities
-	public static RoomRepository create(final Reader reader) {
+	public static RoomRepository create(final Reader reader) throws FileNotFoundException {
 		RoomRepository roomRepository = new RoomRepository();
 		CsvClient<CsvRoom> csvReader = new CsvClientImpl<CsvRoom>(reader,
                 new BeanInstructionsImpl(CsvRoom.class))

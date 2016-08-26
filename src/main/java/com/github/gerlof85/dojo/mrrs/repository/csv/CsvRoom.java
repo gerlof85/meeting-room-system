@@ -1,5 +1,6 @@
 package com.github.gerlof85.dojo.mrrs.repository.csv;
 
+import java.io.FileNotFoundException;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -39,7 +40,7 @@ public class CsvRoom {
 	public void setFacilities(String facilities) {
 		this.facilities = facilities;
 	}
-	public Room create() {
+	public Room create() throws FileNotFoundException {
 		return new Room(location, capacity, name, createFacilities(getFacilities()));
 	}
 	private Set<Facility> createFacilities(final String facilitiesStr) {
