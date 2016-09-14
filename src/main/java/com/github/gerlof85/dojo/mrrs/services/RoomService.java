@@ -2,10 +2,7 @@ package com.github.gerlof85.dojo.mrrs.services;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.StringReader;
 import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
